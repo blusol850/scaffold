@@ -1,0 +1,48 @@
+component extends="api.handlers.BaseHandler"{
+	property name 	= "|entity|Service" 				inject = "|entity|Service@|moduleName|";
+
+    function  index( event, rc, prc ) secured="admin" {		
+		var r = {};
+		r['|entityPlural|'] = |entity|Service.get();
+		prc.response.setData( r );
+	};
+
+	function  new( event, rc, prc ) secured="admin" {		
+		var r = {};
+		r['|entityPlural|'] = |entity|Service.new();
+		prc.response.setData( r );
+	};
+
+	function  create( event, rc, prc ) secured="admin" {		
+		var r = {};
+		r['|entityPlural|'] = |entity|Service.create();
+		prc.response.setData( r );
+	};
+
+	function  show( event, rc, prc ) secured="admin" {		
+		var r = {};
+		r['|entityPlural|'] = |entity|Service.show();
+		prc.response.setData( r );
+	};
+
+	function  edit( event, rc, prc ) secured="admin" {		
+		var r = {};
+		r['|entityPlural|'] = |entity|Service.edit();
+		prc.response.setData( r );
+	};
+
+	function  update( event, rc, prc ) secured="admin" {		
+		var r = {};
+		r['|entityPlural|'] = |entity|Service.update();
+		prc.response.setData( r );
+	};
+
+	function  delete( event, rc, prc ) secured="admin" {		
+		var r = {};
+		r['|entityPlural|'] = |entity|Service.delete();
+		prc.response.setData( r );
+	};
+
+
+
+}

@@ -1,0 +1,9 @@
+	<cffunction name="|method|" hint="|method|" output="false" returntype="any">
+	<cfquery name="|method|" datasource="contentbox">
+			SELECT
+				*
+			FROM
+				bluweb_|tableName|
+		</cfquery>
+		<cfreturn |tableName|>
+	</cffunction>

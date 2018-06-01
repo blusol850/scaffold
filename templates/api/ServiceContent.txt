@@ -1,0 +1,60 @@
+component {
+    property name = "mockdata"          inject = "mockdata@MockDataCFC";
+    property name = "wirebox"           inject = "wirebox";
+
+    function init(){
+        return true;
+    }
+    
+    function get(){
+        var o|entity| = mockdata.mock(
+            'num'       = #randRange(5,20)#,
+            '|pk|'    = "autoincrement", 
+|mockData|
+            'updated_at'     = 'datetime'
+        );
+        return o|entity|;
+    }
+
+    function create(){
+        var o|entity| = var o|entity| = {}
+        return o|entity|;
+    }
+
+    function show(){
+        var o|entity| = mockdata.mock(
+            'num'       = 1,
+            '|pk|'    = "autoincrement", 
+|mockData|
+            'updated_at'     = 'datetime'
+        );
+        return o|entity|;
+    }
+
+    function edit(){
+        var o|entity| = mockdata.mock(
+            'num'       = 1,
+            '|pk|'    = "autoincrement", 
+|mockData|
+            'updated_at'     = 'datetime'
+        );
+        return o|entity|;
+    }
+
+     function new(){
+        var o|entity| = mockdata.mock(
+            'num'       = 1,
+            '|pk|'    = "autoincrement", 
+|mockData|
+            'updated_at'     = 'datetime'
+        );
+        return o|entity|;
+    }
+
+    function delete(){
+        var o|entity| = {}
+        return o|entity|;
+    }
+
+
+}

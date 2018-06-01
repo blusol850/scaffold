@@ -1,0 +1,58 @@
+<cfoutput>
+<div class="row hidden-sm">
+    <div class="col-md-6">
+        <h2 class="h3">
+          #html.href( href="cbadmin.module.|moduleName|.|entityPlural|", text="<i class='fa fa-home'></i> |entityPlural|")#
+        </h2>
+    </div>
+    <div class="col-md-6">
+        <!--- Create Button --->
+<!--
+#html.href( href="cbadmin.module.|moduleName|.|entityPlural|.new", text="Create |entity|", class="btn btn-primary pull-right")#
+-->
+#html.href( href="cbadmin.module.|moduleName|.|entityPlural|.new", text="<i class='fa fa-plus'></i>", class="btn btn-danger pull-right")#
+
+    </div>
+</div>
+
+
+<!--- MessageBox --->
+<cfif flash.exists( "notice" )>
+<div class="row">
+    <div class="col-md-12">
+	    <div class="alert alert-#flash.get( "notice" ).type#">
+	        #flash.get( "notice" ).message#
+	    </div>
+    </div>
+</div>
+</cfif>
+
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+<!--- Listing --->
+|tableListing|
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+   var table = $('.sortable').DataTable({
+       fixedHeader: true,
+        stateSave: true,
+        responsive: true
+      });
+        
+});
+
+
+</script>
+
+</cfoutput>

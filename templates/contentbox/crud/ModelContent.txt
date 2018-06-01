@@ -1,0 +1,82 @@
+<cfcomponent hint="" output="false" >
+
+    <!--- Properties --->
+    
+
+<!------------------------------------------- CONSTRUCTOR ------------------------------------------->
+
+	<cffunction name="init" access="public" returntype="any" output="false" hint="constructor">
+		<cfscript>
+			return this;
+		</cfscript>
+	</cffunction>
+
+<!------------------------------------------- PUBLIC ------------------------------------------->
+<cffunction name="get" hint="get" output="false" returntype="any">
+	<cfquery name="getQuery" datasource="contentbox" result="|tableName|">
+			SELECT
+				*
+			FROM
+				|tableName|
+			WHERE 
+				|tableName|.ID 	= 	<cfqueryparam value="#arguments.rc.id#">
+		</cfquery>
+		<cfreturn getQuery>
+	</cffunction>
+
+	<cffunction name="getall" hint="getall" output="false" returntype="any">
+	<cfquery name="getallQuery" datasource="contentbox" result="|tableName|">
+			SELECT
+				*
+			FROM
+				|tableName|
+		</cfquery>
+		<cfreturn getallQuery>
+	</cffunction>
+
+	<cffunction name="save" hint="save" output="false" returntype="any">
+	<cfquery name="saveQuery" datasource="contentbox" result="saveQuery">
+			<cfif #len(arguments.rc.id)#>
+				UPDATE
+			<cfelse>
+				INSERT INTO
+			</cfif>
+				|tableName|
+			SET
+			|saveListing|
+			|tableName|.updated_at	=	<cfqueryparam value="#createodbcdatetime(now())#"  cfsqltype="cf_sql_timestamp">
+			<cfif #len(arguments.rc.id)#>
+			WHERE
+				|tableName|.ID 	= 	<cfqueryparam value="#arguments.rc.id#">
+				<cfelse>
+			,|tableName|.created_at	=	<cfqueryparam value="#createodbcdatetime(now())#"  cfsqltype="cf_sql_timestamp">
+			</cfif>
+		</cfquery>
+		<cfreturn saveQuery>
+	</cffunction>
+
+	<cffunction name="new" hint="new" output="false" returntype="any">
+	<cfquery name="newQuery" datasource="contentbox" result="|tableName|">
+			SELECT
+				*
+			FROM
+				|tableName|
+			WHERE
+				|tableName|.ID is null
+		</cfquery>
+		<cfreturn newQuery>
+	</cffunction>
+
+	<cffunction name="delete" hint="delete" output="false" returntype="any">
+	<cfquery name="deleteQuery" datasource="contentbox" result="deleteQuery">
+			DELETE
+			FROM
+				|tableName|
+			WHERE
+				|tableName|.ID 	= 	<cfqueryparam value="#arguments.rc.id#">
+		</cfquery>
+		<cfreturn deleteQuery>
+	</cffunction>
+
+
+</cfcomponent>	

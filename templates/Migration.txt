@@ -1,0 +1,15 @@
+component {
+    
+    function up() {
+        queryExecute("
+            -- write the SQL to perform the migration
+        ");
+    }
+
+    function down() {
+        queryExecute("
+            -- write the SQL to undo what you did in `up()`
+        ");
+    }
+
+}
