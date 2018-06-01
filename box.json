@@ -1,0 +1,36 @@
+{
+    "name":"scaffold",
+    "version":"0.0.0",
+    "author":"",
+    "location":"blusol850/scaffold#v0.0.0",
+    "homepage":"https://github.com/blusol850/scaffold",
+    "documentation":"https://github.com/blusol850/scaffold",
+    "repository":{
+        "type":"git",
+        "URL":"https://github.com/blusol850/scaffold"
+    },
+    "bugs":"https://github.com/blusol850/scaffold/issues",
+    "slug":"scaffold",
+    "shortDescription":"Short Module Description",
+    "description":"Short Module Description",
+    "type":"modules",
+    "dependencies":{},
+    "devDependencies":{
+        "coldbox":"^4.3.0+188",
+        "testbox":"^2.4.0+80"
+    },
+    "installPaths":{
+        "testbox":"testbox",
+        "coldbox":"tests/resources/app/coldbox"
+    },
+    "scripts":{
+        "postVersion":"package set location='blusol850/scaffold#v`package version`'",
+        "onRelease":"publish",
+        "postPublish":"!git push && !git push --tags"
+    },
+    "ignore":[
+        "**/.*",
+        "test",
+        "tests"
+    ]
+}
